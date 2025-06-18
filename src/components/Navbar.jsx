@@ -1,10 +1,14 @@
-import { Link } from 'react-router-dom';
-import { Search, Menu, X } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Search, Menu, X, TicketPlus } from 'lucide-react';
 import { useState } from 'react';
 import logo from "../assets/logo.png"
+import { useClerk, UserButton, useUser } from '@clerk/clerk-react';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { user } = useUser();
+    const { openSignIn } = useClerk();
+    const navigate = useNavigate();
 
     return (
         <nav className="bg-secondary text-white shadow-md z-10">
@@ -25,12 +29,22 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center space-x-4">
                     <Search className="w-5 h-5 hover:text-accent cursor-pointer" />
-                    <Link
-                        to="/login"
-                        className="bg-accent text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-[#e50914] transition-colors duration-200"
-                    >
-                        Login
-                    </Link>
+                    {
+                        !user ? (
+                            <button
+                                onClick={openSignIn}
+                                to="/login"
+                                className="bg-accent text-white px-4 py-1.5 rounded-full text-sm font-semibold hover:bg-[#e50914] transition-colors duration-200">
+                                Login
+                            </button>
+                        ) : (
+                            <UserButton>
+                                <UserButton.MenuItems>
+                                    <UserButton.Action label='My Bookings' labelIcon={<TicketPlus width={15} />} onClick={() => navigate('/myBookings')} />
+                                </UserButton.MenuItems>
+                            </UserButton>
+                        )
+                    }
                     {!menuOpen && (
                         <button className="md:hidden" onClick={() => setMenuOpen(true)}>
                             <Menu className="w-6 h-6" />
