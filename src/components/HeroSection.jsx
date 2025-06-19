@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { CalendarIcon, ChevronLeft, ChevronRight, ClockIcon } from "lucide-react";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
 
@@ -64,15 +65,27 @@ const HeroSection = () => {
                     className="fixed inset-0 w-full h-full object-cover z-0"
                 />
             </AnimatePresence>
-            <div className="relative z-10 px-10 pt-[20%] max-w-5xl">
+            <div className="relative z-10 px-4 md:px-10 pt-40 md:pt-[18%] max-w-5xl">
                 <h1 className="text-4xl font-bold mb-2">{current.title}</h1>
+                <div className='flex items-center gap-2 text-gray-300 text-sm'>
+                    <CalendarIcon className='w-5' />
+                    <span>{current.year}</span>
+                </div>
+                <div className='flex items-center gap-2 text-gray-300 text-sm'>
+                    <ClockIcon className='w-5' />
+                    <span>{current.duration}</span>
+                </div>
                 <p className="text-sm text-gray-300 mb-1">
-                    {current.year} • {current.duration} • {current.genres.join(", ")}
+                    {current.genres.join(" | ")}
                 </p>
                 <p className="text-md text-gray-200 max-w-xl mb-4">{current.description}</p>
-                <button onClick={() => navigate('/movies')} className="w-[25%] bg-red-600 hover:bg-red-700 text-white px-4 py-1.5 rounded-full text-sm font-medium transition">
+                <button
+                    onClick={() => navigate('/movies')}
+                    className="w-full sm:w-[40%] md:w-[25%] bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full text-sm font-medium transition"
+                >
                     Explore Movies
                 </button>
+
             </div>
             <button
                 onClick={prevSlide}
