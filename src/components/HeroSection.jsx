@@ -62,7 +62,7 @@ const HeroSection = () => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 1 }}
                     alt={current.title}
-                    className="fixed inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-0"
                 />
             </AnimatePresence>
             <div className="relative z-10 px-4 md:px-10 pt-40 md:pt-[18%] max-w-5xl">

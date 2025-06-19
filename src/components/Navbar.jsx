@@ -20,7 +20,7 @@ const Navbar = () => {
                     {['Home', 'Movies', 'Theatres', 'Releases', 'Favourites'].map((item, i) => (
                         <Link
                             key={i}
-                            to={`/${item.toLowerCase()}`}
+                            to={(item == "Home") ? '/' : `/${item.toLowerCase()}`}
                             className="text-sm px-3 py-1 rounded-full text-white hover:bg-[#e50914] transition-colors duration-200"
                         >
                             {item}
