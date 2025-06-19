@@ -11,12 +11,12 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     return (
-        <nav className="bg-secondary text-white shadow-md z-10">
+        <nav className="absolute top-0 left-0 w-full text-white z-50">
             <div className="max-w-7xl mx-auto px-20 py-4 flex justify-between items-center">
                 <Link to="/">
                     <img src={logo} alt="Logo" className="w-14 h-14" />
                 </Link>
-                <div className="hidden md:flex gap-2 px-8 py-1 bg-[#222] rounded-full">
+                <div className="hidden md:flex gap-2 px-8 py-1 bg-black/40 backdrop-blur-sm rounded-full">
                     {['Home', 'Movies', 'Theatres', 'Releases', 'Favourites'].map((item, i) => (
                         <Link
                             key={i}
