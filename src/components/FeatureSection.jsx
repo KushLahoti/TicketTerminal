@@ -7,17 +7,15 @@ import MovieCard from './MovieCard.jsx';
 const FeatureSection = () => {
     const navigate = useNavigate();
     return (
-        <div className='relative z-10 overflow-hidden py-10 px-6 md:px-16 lg:px-24 xl:px-44 text-white'>
+        <div className='relative z-10 overflow-hidden py-10 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 text-white'>
             <div className="absolute right-0 top-1/4 w-1/2 h-1/2 bg-[#e50914]/30 blur-2xl rounded-full -z-20" />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-[#e50914]/30 backdrop-blur-[2px] -z-10" />
 
-            <div className='relative flex items-center justify-between pt-5 pb-10'>
-                <p className='text-gray-300 font-medium text-lg'>Now Showing</p>
-                <button onClick={() => navigate('/movies')} className='group flex items-center gap-2 text-sm text-gray-300 cursor-pointer'>View All
-                    <ArrowRight className='group-hover:translate-x-0.5 transition w-4.5 h-4.5' /></button>
+            <div className='relative flex justify-center pt-10 pb-5'>
+                <p className='text-gray-300 font-semibold text-3xl'>Now Showing</p>
             </div>
 
-            <div className='flex flex-wrap max-sm:justify-center gap-8 mt-8'>
+            <div className='flex flex-wrap justify-center gap-8 mt-8'>
                 {dummyShowsData.slice(0, 4).map((show) => (
                     <MovieCard key={show._id} movie={show} />
                 ))}
