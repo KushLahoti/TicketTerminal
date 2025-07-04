@@ -26,3 +26,16 @@ body {
     background-color: var(--primary-bg);
     color: var(--text-light);
 }
+
+/* index.css or App.css */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}

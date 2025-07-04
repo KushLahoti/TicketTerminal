@@ -35,7 +35,7 @@ const TrailerSection = () => {
                     className='mx-auto max-w-full' width="960px" height="540px"
                 />
             </div>
-            <div className='mt-8 flex justify-center gap-6 overflow-x-auto pb-2'>
+            <div className='mt-8 flex justify-center gap-6 overflow-x-auto scrollbar-hide pb-2 scroll-smooth snap-x'>
                 {dummyTrailers.map((trailer) => (
                     <div key={trailer.image} className='relative min-w-[160px] max-w-[180px]
                      cursor-pointer hover:scale-105 transition-transform duration-200' onClick={() => setCurrentTrailer(trailer)}>
