@@ -39,3 +39,7 @@ body {
     scrollbar-width: none;
     /* Firefox */
 }
+
+.no-scrollbar {
+    scrollbar-width: none;
+}

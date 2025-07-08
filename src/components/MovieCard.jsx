@@ -33,7 +33,7 @@ const MovieCard = ({ movie, showBuyButton = true, isFavourite = false, onToggleF
                         className='p-1 mt-1 rounded-full transition hover:bg-black/40'
                         title={isFavourite ? 'Remove from Favourites' : 'Add to Favourites'}
                     >
-                        <Heart className={`w-5 h-5 ${isFavourite ? 'fill-red-600 text-red-600' : 'text-white'}`} />
+                        <Heart className={`w-5 h-5 ${isFavourite ? 'fill-red-600 text-red-600' : 'text-white'} cursor-pointer`} />
                     </button>
                 </div>
             </div>

@@ -9,6 +9,7 @@ import MyBookings from './pages/MyBookings'
 import Favourite from './pages/Favourite'
 import Footer from './components/Footer'
 import { Toaster } from 'react-hot-toast'
+import ScrollToTop from './lib/ScrollToTop'
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
     <>
       <Toaster />
       {!isAdmin && <Navbar />}
+      <ScrollToTop />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/movies' element={<Movies />} />
