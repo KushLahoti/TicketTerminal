@@ -7,6 +7,7 @@ const Movies = () => {
     useEffect(() => {
         const stored = JSON.parse(localStorage.getItem('favourites')) || [];
         setFavourites(stored);
+        window.scrollTo(0, 0);
     }, [])
 
     const toggleFavourite = (movie) => {

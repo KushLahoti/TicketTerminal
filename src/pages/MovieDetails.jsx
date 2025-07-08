@@ -1,15 +1,17 @@
 import { Heart, PlayCircleIcon, StarIcon } from 'lucide-react';
 import { dummyDateTimeData, dummyShowsData } from '../assets/assets';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import timeFormat from '../lib/timeFormat';
 import DateSelect from '../components/DateSelect';
+import MovieCard from '../components/MovieCard';
 
 const MovieDetails = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [dateTime, setDateTime] = useState([]);
     const [isFav, setIsFav] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const foundMovie = dummyShowsData.find(movie => movie._id === id);
@@ -88,7 +90,20 @@ const MovieDetails = () => {
                     </div>
                 </div>
             </div>
-            <DateSelect dateTime={dateTime} id={id} className='relative z-10' />
+            <DateSelect dateTime={dateTime} id={id} />
+            <div className='pt-16 pb-20 px-4 sm:px-8 md:px-8 lg-px[10%] mx-30 mb-10 text-white bg-white/5 border border-white/10 rounded-xl p-6 md:p-10 shadow-lg'>
+                <h2 className='font-semibold text-2xl text-center mb-10'>You May Also Like</h2>
+                <div className='flex gap-2'>
+                    {dummyShowsData.slice(0, 4).map((movie, index) => (
+                        <MovieCard key={index} movie={movie} showBuyButton={true} isFavourite={isFav} onToggleFavourite={handleFav} />
+                    ))}
+                </div>
+                <div className='flex items-center justify-center mt-10'>
+                    <button onClick={() => navigate('/movies')} className='text-center p-2 bg-[#e50914] hover:bg-[#b40610] transition-colors duration-200 rounded-2xl font-medium shadow-md hover:shadow-lg hover:scale-[1.03] transform cursor-pointer'>
+                        Show More
+                    </button>
+                </div>
+            </div>
         </div>
     )
 }
