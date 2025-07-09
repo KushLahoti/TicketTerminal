@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import timeFormat from '../lib/timeFormat';
 import DateSelect from '../components/DateSelect';
 import MovieCard from '../components/MovieCard';
+import Loading from '../components/Loading';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -36,9 +37,7 @@ const MovieDetails = () => {
         setIsFav(!isFav);
     }
 
-    if (!movie) return <div className='h-screen flex items-center justify-center'>
-        <h1 className='text-3xl font-semibold'>Loading Movie...</h1>
-    </div>
+    if (!movie) return <Loading />
 
     return (
         <div className='relative min-h-screen pt-16'>
